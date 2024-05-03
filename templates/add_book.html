@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+    <h1>Add author</h1>
+        <form method='POST'>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ request.form['title'] }}" required>
+
+            <br><br>
+
+            <label for="isbn">isbn:</label>
+            <input type="text" id="isbn" name="isbn" value="{{ request.form['isbn'] }}" required>
+
+            <br><br>
+
+            <label for="publication_year">Publication year:</label>
+            <input type="date" id="publication_year" name="publication_year" value="{{ request.form['publication_year'] }}" required>
+
+            <br><br>
+
+            <label for="author">Author:</label>
+            <select name="author" id="author" required>
+                {% for author in authors %}
+                    <option value="{{ author.name }}"> {{ author.name }} </option>
+                {% endfor %}
+            </select>
+
+            <br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+</body>
+</html>

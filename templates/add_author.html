@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Author</title>
+</head>
+<body>
+    <h1>Add author</h1>
+        <form method='POST'>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ request.form['name'] }}" required>
+
+            <br><br>
+
+            <label for="date_of_birth">Date of birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" value="{{ request.form['date_of_birth'] }}" required>
+
+            <br><br>
+
+            <label for="date_of_death">Date of death:</label>
+            <input type="date" id="date_of_death" name="date_of_death" value="{{ request.form['date_of_death'] }}" required>
+
+            <br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+</body>
+</html>

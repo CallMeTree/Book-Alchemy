@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container mt-1">
+
+      {% if sort == "title" %}
+        <a href="{{ url_for('home', sort='author') }}" style="color: inherit;">
+          <i class="bi bi-sort-up" style="font-size: 3rem;" title="Sort by Author"></i>
+        </a>
+      {% elif sort == "author" %}
+        <a href="{{ url_for('home', sort='title') }}" style="color: inherit;">
+          <i class="bi bi-sort-up" style="font-size: 3rem;" title="Sort by Title"></i>
+        </a>
+      {% endif %}
+
+    </div>
+  {% for book in books%}
+    <div class="card container mt-3">
+      <div class="card-header">
+        {{ book.isbn}}
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{ book.title }}</p>
+          <footer class="blockquote-footer">{{ book.author.name }}</footer>
+        </blockquote>
+        <form action="{{ url_for('delete_book', title=book.title) }}" method="POST">
+          <button type="submit" class="btn btn-outline-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock%}

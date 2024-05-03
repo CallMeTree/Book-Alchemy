@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for book in books %}
+    <div class="card container mt-3">
+      <div class="card-header">
+        {{ book.isbn}}
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{ book.title }}</p>
+          <footer class="blockquote-footer">{{ book.author.name }}</footer>
+        </blockquote>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock%}
